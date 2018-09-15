@@ -57,13 +57,14 @@ public class AddTwoNumbers {
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode result = new ListNode(0);
+        ListNode result = null;
         ListNode temp1 = l1;
         ListNode temp2 = l2;
 
-        ListNode curr = result;
+        ListNode curr = null;
 
         int remainder = 0;
+
         while (temp1 != null || temp2 != null) {
             int res = (temp1 != null ? temp1.val : 0) + (temp2 != null ? temp2.val : 0) + remainder;
             remainder = 0;
@@ -72,7 +73,14 @@ public class AddTwoNumbers {
             }
 
             res = res % 10;
-            curr.next = new ListNode(res);
+
+            if (result == null) {
+                // 创建头结点
+                curr = result = new ListNode(res);
+            } else {
+                curr.next = new ListNode(res);
+                curr = curr.next;
+            }
 
             if (temp1 != null) {
                 temp1 = temp1.next;
@@ -80,7 +88,6 @@ public class AddTwoNumbers {
             if (temp2 != null) {
                 temp2 = temp2.next;
             }
-            curr = curr.next;
         }
 
         // 处理最后一位相加大于10的情况，由于节点只存储单个数字
@@ -89,7 +96,7 @@ public class AddTwoNumbers {
             curr.next = new ListNode(remainder);
         }
 
-        return result.next;
+        return result;
     }
 
 }
