@@ -1,6 +1,10 @@
 package me.mingshan.leetcode;
 
 /**
+ * 两数相加
+ *   给定两个非空链表来表示两个非负整数。位数按照逆序方式存储，它们的每个节点只存储单个数字。将两数相加返回一个新的链表。
+ *   你可以假设除了数字 0 之外，这两个数字都不会以零开头。
+ *
  * @Author: mingshan
  * @Date: Created in 17:38 2018/9/15
  */
@@ -27,9 +31,9 @@ public class AddTwoNumbers {
         ListNode.print(twoNumbers.addTwoNumbers(l1, l2));
 
         // 第二种
-        // 2 -> 4 -> 3
+        // 2 -> 5 -> 3
         ListNode l3 = new ListNode(2);
-        ListNode l32 = new ListNode(4);
+        ListNode l32 = new ListNode(6);
         ListNode l33 = new ListNode(3);
         l3.next = l32;
         l32.next = l33;
